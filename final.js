@@ -1,3 +1,3 @@
 let num = 24
 
-; // keep
+console.log("keeping log"); // keep
