@@ -67,29 +67,47 @@ Whether you write `//debug` or `//   debug`, PureCommit will find it and clean i
 ---
 
 <section id="installation">
-  <h3>📦 Installation & Setup</h3>
-  <p>Choose the method that best fits your workflow:</p>
+  <hr />
+  <h3 align="center">📦 Installation & Setup</h3>
+  <p align="center">Choose the method that best fits your workflow:</p>
 
   <div style="background-color: #f6f8fa; padding: 16px; border-radius: 6px; margin-bottom: 16px; border: 1px solid #d0d7de;">
     <h4 style="margin-top: 0;">1️⃣ Run Instantly (No Install)</h4>
-    <p>Test PureCommit on any repository immediately using <code>npx</code>:</p>
+    <p>Test PureCommit on any repository immediately without adding it to your <code>package.json</code>:</p>
     <pre style="background-color: #0d1117; color: #e6edf3; padding: 12px; border-radius: 6px; overflow: auto;"><code>npx purecommit</code></pre>
   </div>
 
   <div style="background-color: #f6f8fa; padding: 16px; border-radius: 6px; margin-bottom: 16px; border: 1px solid #d0d7de;">
-    <h4 style="margin-top: 0;">2️⃣ Local Project Setup</h4>
-    <p>Add PureCommit as a development dependency to your project:</p>
-    <pre style="background-color: #0d1117; color: #e6edf3; padding: 12px; border-radius: 6px; overflow: auto;"><code>npm install purecommit --save-dev</code></pre>
+    <h4 style="margin-top: 0;">2️⃣ Global Installation</h4>
+    <p>Install it globally on your system to use the <code>purecommit</code> command anywhere:</p>
+    <pre style="background-color: #0d1117; color: #e6edf3; padding: 12px; border-radius: 6px; overflow: auto;"><code>npm install -g purecommit</code></pre>
+    <p>Once installed globally, you can simply run:</p>
+    <pre style="background-color: #0d1117; color: #e6edf3; padding: 12px; border-radius: 6px; overflow: auto;"><code>purecommit</code></pre>
   </div>
 
   <div style="background-color: #f6f8fa; padding: 16px; border-radius: 6px; margin-bottom: 16px; border: 1px solid #d0d7de;">
     <h4 style="margin-top: 0;">3️⃣ Automatic Mode (Recommended)</h4>
-    <p>Automate your workflow by setting up the <b>Pre-commit Hook</b>. Simply run:</p>
+    <p>Automate your workflow by setting up a <b>Pre-commit Hook</b>. Run the tool in your project folder:</p>
     <pre style="background-color: #0d1117; color: #e6edf3; padding: 12px; border-radius: 6px; overflow: auto;"><code>npx purecommit</code></pre>
-    <p>If a hook is not detected, PureCommit will prompt you:</p>
-    <blockquote style="border-left: 4px solid #afb8c1; padding-left: 16px; color: #656d76;">
+    
+    <p>When prompted with:</p>
+    <blockquote style="border-left: 4px solid #afb8c1; padding-left: 16px; color: #656d76; background: #fff; padding: 10px;">
       <i>"Husky hook not found. Do you want to set PureCommit as a pre-commit hook? (y/n)"</i>
     </blockquote>
-    <p>Type <kbd>y</kbd> to ensure your commits are purified automatically every time you commit.</p>
+
+    <table width="100%" style="border-collapse: collapse; margin-top: 10px;">
+      <tr style="background-color: #ffffff;">
+        <td style="padding: 10px; border: 1px solid #d0d7de;"><b>If you choose <kbd>y</kbd></b></td>
+        <td style="padding: 10px; border: 1px solid #d0d7de;"><b>Automation:</b> PureCommit will run quietly every time you <code>git commit</code>. No manual steps required.</td>
+      </tr>
+      <tr style="background-color: #ffffff;">
+        <td style="padding: 10px; border: 1px solid #d0d7de;"><b>If you choose <kbd>n</kbd></b></td>
+        <td style="padding: 10px; border: 1px solid #d0d7de;"><b>Manual:</b> You must run <code>npx purecommit</code> (or just <code>purecommit</code> if installed globally) whenever you want to purify your staged changes.</td>
+      </tr>
+    </table>
+
+    <p align="center" style="font-size: 0.85em; color: #cf222e; margin-top: 15px;">
+      ⚠️ <b>Important:</b> Automatic setup requires an initialized Git repository. Run <code>git init</code> first if testing in a new folder.
+    </p>
   </div>
 </section>
