@@ -1,0 +1,36 @@
+{
+  "name": "purecommit",
+  "version": "1.0.0",
+  "description": "Purify your commits by automatically removing console.logs and debug comments.",
+  "main": "src/purifier.js",
+  "bin": {
+    "purecommit": "bin/purecommit.js"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "git",
+    "hooks",
+    "husky",
+    "clean",
+    "console.log",
+    "debug",
+    "pre-commit"
+  ],
+  "author": "Aman Raj",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Prof2807/CleanCommit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Prof2807/CleanCommit/issues"
+  },
+  "homepage": "https://github.com/Prof2807/CleanCommit#readme"
+}
