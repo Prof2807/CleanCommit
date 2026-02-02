@@ -1,72 +1,86 @@
-PureCommit
-Purify your commits without losing your local debug flow.
+<div align="center">
+  <h1>🚀 PureCommit</h1>
+  <p><b>Purify your commits without losing your local debug flow.</b></p>
+  
+  <p>
+    <img src="https://img.shields.io/npm/v/purecommit?style=for-the-badge&color=blue" alt="NPM Version" />
+    <img src="https://img.shields.io/npm/l/purecommit?style=for-the-badge&color=green" alt="License" />
+    <img src="https://img.shields.io/npm/dt/purecommit?style=for-the-badge&color=orange" alt="Downloads" />
+  </p>
+  <hr />
+</div>
 
-PureCommit is a "Non-Destructive" CLI tool that automatically strips console.log statements and 
-// debug comments from your git commits, while keeping them intact in your local files.
+<p align="center">
+  PureCommit is a <b>"Non-Destructive"</b> CLI tool that automatically strips <code>console.log</code> statements and <code>// debug</code> comments from your <b>git commits</b>, while keeping them intact in your local files.
+</p>
 
-Keep your production code clean without sacrificing your local debugging experience.
+<div align="center">
+  <p><i>Keep your production code clean without sacrificing your local debugging experience.</i></p>
+</div>
 
+---
 
-Features:
-Safe-Purification: Only cleans the "Staged" version of your files. Your local workspace remains untouched.
+### ✨ Features
 
-Zero-Tolerance Cleaning: Automatically detects and removes all console.log(...) and lines containing // debug.
+<table width="100%">
+  <tr>
+    <td>🛡️ <b>Safe-Purification</b></td>
+    <td>Only cleans the "Staged" version of your files. Your local workspace remains untouched.</td>
+  </tr>
+  <tr>
+    <td>🧹 <b>Zero-Tolerance</b></td>
+    <td>Automatically detects and removes all <code>console.log(...)</code> and lines containing <code>// debug</code>.</td>
+  </tr>
+  <tr>
+    <td>🏷️ <b>The "Keep" Tag</b></td>
+    <td>Add <code>// keep</code> to the end of any line to bypass the filter and keep it in production.</td>
+  </tr>
+  <tr>
+    <td>🐶 <b>Husky Ready</b></td>
+    <td>Built-in setup to run automatically on every <code>git commit</code>.</td>
+  </tr>
+</table>
 
-The "Keep" Tag: Need a specific log to reach production? Add // keep to the end of the line to bypass the filter.
+---
 
-Husky Integration: Simple setup to run automatically on every git commit.
+### 🛠 How It Works
 
+PureCommit intercepts your files as they are being committed. It creates a "purified" version of your code for the repository while leaving your actual physical files on your computer alone.
 
-How It Works:
-PureCommit intercepts your files as they are being committed.
-It creates a "purified" version of your code for the repository while leaving your actual physical files on your computer alone.
+#### **The Rules:**
 
-The Rules:
-Purified: console.log("Testing..."); ➔ Removed from commit
+> ❌ **Purified:** `console.log("Testing...");` ➔ *Removed from commit*
+> 
+> ❌ **Purified:** `const x = 10; // debug: check value` ➔ *Removed from commit*
+> 
+> ✅ **Preserved:** `console.log("App Started"); // keep` ➔ *Kept in commit (tag is stripped)*
 
-Purified: const x = 10; // debug: check value ➔ Removed from commit
+---
 
-Preserved: console.log("App Started"); // keep ➔ Kept in commit (and the // keep tag is stripped for a clean look!)
+<section id="installation">
+  <h3>📦 Installation & Setup</h3>
+  <p>Choose the method that best fits your workflow:</p>
 
+  <div style="background-color: #f6f8fa; padding: 16px; border-radius: 6px; margin-bottom: 16px; border: 1px solid #d0d7de;">
+    <h4 style="margin-top: 0;">1️⃣ Run Instantly (No Install)</h4>
+    <p>Test PureCommit on any repository immediately using <code>npx</code>:</p>
+    <pre style="background-color: #0d1117; color: #e6edf3; padding: 12px; border-radius: 6px; overflow: auto;"><code>npx purecommit</code></pre>
+  </div>
 
-Installation & Setup:
-1. Run it instantly
-You can test it on any repository without installing:
+  <div style="background-color: #f6f8fa; padding: 16px; border-radius: 6px; margin-bottom: 16px; border: 1px solid #d0d7de;">
+    <h4 style="margin-top: 0;">2️⃣ Local Project Setup</h4>
+    <p>Add PureCommit as a development dependency to your project:</p>
+    <pre style="background-color: #0d1117; color: #e6edf3; padding: 12px; border-radius: 6px; overflow: auto;"><code>npm install purecommit --save-dev</code></pre>
+  </div>
 
-Bash:
-npx purecommit
-
-2. Project Setup:
-Install it as a dev dependency:
-
-Bash:
-npm install purecommit --save-dev
-
-3. Automatic Mode (Recommended)
-Run the command:
-
-Bash:
-npx purecommit
-
-If you don't have a Git Hook set up, PureCommit will ask:
-Husky hook not found. Do you want to set PureCommit as a pre-commit hook? (y/n)
-Type y to automate your purification!
-
-Contributing
-If you have ideas for better regex patterns or new features:
-
-Fork the Project.
-
-Create your Feature Branch (git checkout -b feature/NewRule).
-
-Commit your Changes (git commit -m 'Add NewRule').
-
-Push to the Branch (git push origin feature/NewRule).
-
-Open a Pull Request.
-
-
-License
-Distributed under the MIT License. See LICENSE for more information.
-
-Created by Aman Raj
+  <div style="background-color: #f6f8fa; padding: 16px; border-radius: 6px; margin-bottom: 16px; border: 1px solid #d0d7de;">
+    <h4 style="margin-top: 0;">3️⃣ Automatic Mode (Recommended)</h4>
+    <p>Automate your workflow by setting up the <b>Pre-commit Hook</b>. Simply run:</p>
+    <pre style="background-color: #0d1117; color: #e6edf3; padding: 12px; border-radius: 6px; overflow: auto;"><code>npx purecommit</code></pre>
+    <p>If a hook is not detected, PureCommit will prompt you:</p>
+    <blockquote style="border-left: 4px solid #afb8c1; padding-left: 16px; color: #656d76;">
+      <i>"Husky hook not found. Do you want to set PureCommit as a pre-commit hook? (y/n)"</i>
+    </blockquote>
+    <p>Type <kbd>y</kbd> to ensure your commits are purified automatically every time you commit.</p>
+  </div>
+</section>
