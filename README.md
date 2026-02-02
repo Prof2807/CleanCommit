@@ -60,7 +60,7 @@ Whether you write `//debug` or `//   debug`, PureCommit will find it and clean i
 | Code Example | Action | Result in Commit |
 | :--- | :--- | :--- |
 | `console.log("Check this");` | ❌ **Remove** | *Deleted* |
-| `const x = 5; // DEBUG` | ❌ **Remove** | `const x = 5;` |
+| `const x = 5; // DEBUG This is just a number` | ❌ **Remove** | `const x = 5;` |
 | `console.info("Vital Info"); // keep` | ✅ **Keep** | `console.info("Vital Info");` |
 | `// TODO: fix this debug log` | 🛡️ **Ignore** | *Stays exactly as is* |
 
